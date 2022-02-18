@@ -18,6 +18,9 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: nameless-shelf-29398
           heroku_email: ${{secrets.EMAIL}}
+          healthcheck: 'https://nameless-shelf-29398.herokuapp.com/health'
+          checkstring: 'ok'
+          delay: 5
       - name: npm install
         run: npm install
       - name: lint
@@ -26,5 +29,3 @@ jobs:
         run: npm run build
       - name: test
         run: npm test
-      - name: deploy
-        run: git push heroku master
