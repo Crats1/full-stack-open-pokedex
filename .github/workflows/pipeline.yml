@@ -15,9 +15,9 @@ jobs:
           node-version: '12.x'
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
-          heroku_api_key: ${{secret.HEROKU_API_KEY}}
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: nameless-shelf-29398
-          heroku_email: ${{secret.EMAIL}}
+          heroku_email: ${{secrets.EMAIL}}
       - name: npm install
         run: npm install
       - name: lint
