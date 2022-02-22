@@ -29,3 +29,7 @@ jobs:
         env:
           CONTAINS_SKIP: ${{ contains(github.event.commits.*.message, '#skip') }}
         run: echo "$CONTAINS_SKIP"
+      - name: "contains #skip array?"
+        env:
+          CONTAINS_SKIP: ${{ contains(join(github.event.commits.*.message, ' '), '#skip') }}
+        run: echo "$CONTAINS_SKIP"
