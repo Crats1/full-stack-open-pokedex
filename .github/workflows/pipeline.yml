@@ -40,3 +40,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
+      - name: Check the deployed service URL
+        uses: jtalk/url-health-check-action@v2
+        with:
+          url: 'https://nameless-shelf-29398.herokuapp.com/health'
+          follow-redirect: false
+          max-attempts: 3
+          retry-delay: 5s
+          retry-all: false
